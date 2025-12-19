@@ -3,7 +3,11 @@
 
 import os
 import google.auth
+from dotenv import load_dotenv  
 
+
+
+load_dotenv()
 # GCP Configuration - auto-detect project ID from credentials
 _, PROJECT_ID = google.auth.default()
 os.environ.setdefault("GOOGLE_CLOUD_PROJECT", PROJECT_ID)
@@ -21,7 +25,7 @@ BQ_LOCATION = os.getenv("BQ_LOCATION", "us-central1")
 DATA_STORE_ID = os.getenv("DATA_STORE_ID")
 
 # Vertex AI Search Configuration
-DATA_STORE_REGION = os.getenv("DATA_STORE_REGION", "us")
+DATA_STORE_REGION = os.getenv("DATA_STORE_REGION", "global")
 # Full resource name for Vertex AI Search datastore
 VERTEX_AI_SEARCH_DATASTORE = os.getenv(
     "VERTEX_AI_SEARCH_DATASTORE",
